@@ -30,6 +30,7 @@ import android.graphics.Paint.FontMetricsInt;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -264,6 +265,9 @@ public class CandidateView extends View {
                 widthMeasureSpec), getDefaultSize(getSuggestedMinimumHeight(),
                 heightMeasureSpec));
 
+        Log.v("CandidateView", "mMeasuredWidth: " + mMeasuredWidth + "  mMeasuredHeight:"
+                + mMeasuredHeight + "  mOldWidth:" + mOldWidth + "  mOldHeight:" + mOldHeight);
+        mOldHeight = mMeasuredHeight;
         if (mOldWidth != mMeasuredWidth || mOldHeight != mMeasuredHeight) {
             onSizeChanged();
         }
